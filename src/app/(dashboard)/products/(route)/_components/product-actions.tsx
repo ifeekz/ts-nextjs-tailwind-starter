@@ -1,0 +1,57 @@
+'use client';
+
+import { Copy, Edit, Eye, MoreHorizontal, Trash } from 'lucide-react';
+import Link from 'next/link';
+
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import type { Product } from '@/types/product';
+
+interface ProductActionsProps {
+  product: Product;
+}
+
+export function ProductActions({ product }: ProductActionsProps) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant='ghost' className='h-8 w-8 p-0'>
+          <span className='sr-only'>Open menu</span>
+          <MoreHorizontal className='h-4 w-4' />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align='end'>
+        <DropdownMenuItem asChild>
+          <Link href={`/products/${product.id}`} className='flex items-center'>
+            <Eye className='mr-2 h-4 w-4' />
+            View
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link
+            href={`/products/${product.id}/edit`}
+            className='flex items-center'
+          >
+            <Edit className='mr-2 h-4 w-4' />
+            Edit
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Copy className='mr-2 h-4 w-4' />
+          Duplicate
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className='text-destructive'>
+          <Trash className='mr-2 h-4 w-4' />
+          Delete
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}

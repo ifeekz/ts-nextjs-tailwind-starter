@@ -1,11 +1,16 @@
+import '@/styles/globals.css';
+
 import { Metadata } from 'next';
+import NextTopLoader from 'nextjs-toploader';
 import * as React from 'react';
 
-import '@/styles/globals.css';
 // !STARTERCONF This is for demo purposes, remove @/styles/colors.css import immediately
-import '@/styles/colors.css';
-
+// import '@/styles/colors.css';
+import { Toaster } from '@/components/ui/sonner';
 import { siteConfig } from '@/constant/config';
+import { AuthProvider } from '@/context/auth-context';
+import ReactQueryProvider from '@/providers/react-query-provider';
+import { ThemeProvider } from '@/providers/theme-provider';
 
 // !STARTERCONF Change these default meta
 // !STARTERCONF Look at @/constant/config to change them
@@ -55,8 +60,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <body>{children}</body>
+    <html lang='en' suppressHydrationWarning>
+      <body>
+        <NextTopLoader color='#66CC8A' showSpinner={false} />
+        <ReactQueryProvider>
+          <AuthProvider>
+            <ThemeProvider
+              attribute='class'
+              defaultTheme='light'
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </AuthProvider>
+        </ReactQueryProvider>
+        <Toaster />
+      </body>
     </html>
   );
 }

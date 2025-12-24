@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('../../public/fonts/BR-Firma/stylesheet.css');
+
+body {
+/_ font-family: Arial, Helvetica, sans-serif; _/
+@apply font-sans;
+}
+
+@layer utilities {
+.text-balance {
+text-wrap: balance;
+}
+
+.sidebar-gradient {
+background: linear-gradient(
+to bottom right,
+hsl(222, 56%, 12%),
+hsl(158, 86%, 16%),
+hsl(222, 56%, 12%)
+);
+}
+}
+
+@layer base {
+:root {
+--background: 208 100% 97.06%;
+--foreground: 216.92 19.12% 26.67%;
+--card: 0 0% 100%;
+--card-foreground: 216.92 19.12% 26.67%;
+--popover: 0 0% 100%;
+--popover-foreground: 216.92 19.12% 26.67%;
+/_ --primary: 142.09 70.56% 45.29%; _/
+--primary: 141.1764705882353 50% 60%;
+--primary-foreground: 0 0% 100%;
+--secondary: 204 93.75% 93.73%;
+--secondary-foreground: 215 13.79% 34.12%;
+--muted: 220 14.29% 95.88%;
+--muted-foreground: 220 8.94% 46.08%;
+--accent: 149.27 80.39% 90%;
+--accent-foreground: 216.92 19.12% 26.67%;
+--destructive: 0 84.24% 60.2%;
+--destructive-foreground: 0 0% 100%;
+--border: 220 13.04% 90.98%;
+--input: 220 13.04% 90.98%;
+--ring: 142.09 70.56% 45.29%;
+--chart-1: 142.09 70.56% 45.29%;
+--chart-2: 160.12 84.08% 39.41%;
+--chart-3: 161.38 93.55% 30.39%;
+--chart-4: 162.93 93.55% 24.31%;
+--chart-5: 163.15 88.12% 19.8%;
+/_ --sidebar: linear-gradient(to right, #cbd5e1, #a7f3d0, #cbd5e1); _/
+/_ --sidebar: linear-gradient(to bottom right, #0f172a, #064e3b, #0f172a); _/
+--sidebar: 204 93.75% 93.73%;
+--sidebar-foreground: 216.92 19.12% 26.67%;
+--sidebar-primary: 142.09 70.56% 45.29%;
+--sidebar-primary-foreground: 0 0% 100%;
+--sidebar-accent: 149.27 80.39% 90%;
+--sidebar-accent-foreground: 216.92 19.12% 26.67%;
+--sidebar-border: 220 13.04% 90.98%;
+--sidebar-ring: 142.09 70.56% 45.29%;
+--font-sans: Plus Jakarta Sans, sans-serif;
+--font-serif: Lora, serif;
+--font-mono: IBM Plex Mono, monospace;
+--radius: 0.5rem;
+--shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+--shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+--shadow-sm: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 1px 2px -2px hsl(0 0% 0% / 0.1);
+--shadow: 0px 4px 8px -1px hsl(0 0% 0% / 1.7),
+0px 1px 2px -2px hsl(0 0% 0% / 0.1);
+--shadow-md: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 2px 4px -2px hsl(0 0% 0% / 0.1);
+--shadow-lg: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 4px 6px -2px hsl(0 0% 0% / 0.1);
+--shadow-xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 8px 10px -2px hsl(0 0% 0% / 0.1);
+--shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
+}
+.dark {
+--background: 222.22 47.37% 11.18%;
+--foreground: 216 12.2% 83.92%;
+--card: 217.24 32.58% 17.45%;
+--card-foreground: 216 12.2% 83.92%;
+--popover: 217.24 32.58% 17.45%;
+--popover-foreground: 216 12.2% 83.92%;
+--primary: 158.11 64.37% 51.57%;
+--primary-foreground: 222.22 47.37% 11.18%;
+--secondary: 217.78 23.08% 22.94%;
+--secondary-foreground: 240 5.03% 64.9%;
+--muted: 217.24 32.58% 17.45%;
+--muted-foreground: 220 8.94% 46.08%;
+--accent: 216.92 19.12% 26.67%;
+--accent-foreground: 240 5.03% 64.9%;
+--destructive: 0 84.24% 60.2%;
+--destructive-foreground: 222.22 47.37% 11.18%;
+--border: 215 13.79% 34.12%;
+--input: 215 13.79% 34.12%;
+--ring: 158.11 64.37% 51.57%;
+--chart-1: 158.11 64.37% 51.57%;
+--chart-2: 172.46 66.01% 50.39%;
+--chart-3: 142.09 70.56% 45.29%;
+--chart-4: 160.12 84.08% 39.41%;
+--chart-5: 161.38 93.55% 30.39%;
+/_ --sidebar: 217.24 32.58% 17.45%; _/
+--sidebar: linear-gradient(to bottom right, #0f172a, #064e3b, #0f172a);
+--sidebar-foreground: 216 12.2% 83.92%;
+--sidebar-primary: 158.11 64.37% 51.57%;
+--sidebar-primary-foreground: 222.22 47.37% 11.18%;
+--sidebar-accent: 216.92 19.12% 26.67%;
+--sidebar-accent-foreground: 240 5.03% 64.9%;
+--sidebar-border: 215 13.79% 34.12%;
+--sidebar-ring: 158.11 64.37% 51.57%;
+--font-sans: Plus Jakarta Sans, sans-serif;
+--font-serif: Lora, serif;
+--font-mono: IBM Plex Mono, monospace;
+--radius: 0.5rem;
+--shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+--shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
+--shadow-sm: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 1px 2px -2px hsl(0 0% 0% / 0.1);
+--shadow: 0px 4px 8px -1px hsl(0 0% 0% / 1.7),
+0px 1px 2px -2px hsl(0 0% 0% / 0.1);
+--shadow-md: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 2px 4px -2px hsl(0 0% 0% / 0.1);
+--shadow-lg: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 4px 6px -2px hsl(0 0% 0% / 0.1);
+--shadow-xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.1),
+0px 8px 10px -2px hsl(0 0% 0% / 0.1);
+--shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
+}
+}
+
+@layer base {
+
+- {
+  @apply border-border;
+  }
+  body {
+  @apply bg-background text-foreground;
+  }
+  }
+
+@layer base {
+
+- {
+  @apply border-border outline-ring/50;
+  font-family: 'BR Firma';
+  /_ font-family: 'Plus Jakarta Sans'; _/
+  }
+  body {
+  @apply bg-background text-foreground;
+  font-family: 'BR Firma';
+  /_ font-family: 'Plus Jakarta Sans'; _/
+  }
+  }
